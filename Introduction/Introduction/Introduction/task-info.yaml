@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/main/java/jetbrains/refactoring/course/introduction/Main.java
+    visible: true

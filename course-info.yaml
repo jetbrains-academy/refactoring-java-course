@@ -1,10 +1,18 @@
 type: marketplace
-title: JetBrains Academy Java course template
+title: Introduction to IDE Java Code Refactoring
 language: English
 summary: Here you can put the course description. You can use HTML tags inside the
   description.
 programming_language: Java
 content:
-  - courseSection
+  - Introduction
+  - RefactoringAndItsPurpose
+  - CodeStyleAndFormatting
+  - RenamingCode
+  - MovingCode
+  - ExtractingCode
+  - InliningCode
+  - RefactoringToDesignPatterns
+  - Conclusion
 environment_settings:
   jvm_language_level: JDK_17

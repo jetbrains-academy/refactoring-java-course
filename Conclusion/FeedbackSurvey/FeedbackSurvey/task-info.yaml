@@ -1,0 +1,5 @@
+type: theory
+custom_name: Feedback survey
+files:
+  - name: src/main/java/jetbrains/refactoring/course/conclusion/Main.java
+    visible: true

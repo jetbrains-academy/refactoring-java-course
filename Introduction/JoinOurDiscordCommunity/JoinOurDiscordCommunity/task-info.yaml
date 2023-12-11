@@ -1,0 +1,5 @@
+type: theory
+custom_name: Join our Discord community
+files:
+  - name: src/main/java/jetbrains/refactoring/course/introduction/Main.java
+    visible: true
