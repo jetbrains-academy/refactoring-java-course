@@ -1,0 +1,5 @@
+type: theory
+custom_name: Moving Code - Introduction
+files:
+  - name: src/main/java/jetbrains/refactoring/course/moving/Main.java
+    visible: true

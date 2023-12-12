@@ -1,0 +1,9 @@
+type: theory
+custom_name: What is Move refactoring?
+files:
+  - name: src/main/java/jetbrains/refactoring/course/moving/Main.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/moving/car/Car.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/moving/driver/Driver.java
+    visible: true

@@ -1,0 +1,9 @@
+type: theory
+custom_name: What are Pull Up and Push Down refactorings?
+files:
+  - name: src/main/java/jetbrains/refactoring/course/moving/Animal.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/moving/Cat.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/moving/Dog.java
+    visible: true
