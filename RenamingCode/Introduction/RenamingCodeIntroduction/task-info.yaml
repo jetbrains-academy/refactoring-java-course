@@ -1,0 +1,5 @@
+type: theory
+custom_name: Renaming Code - Introduction
+files:
+  - name: src/main/java/jetbrains/refactoring/course/renaming/Main.java
+    visible: true
