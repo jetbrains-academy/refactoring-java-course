@@ -1,0 +1,24 @@
+type: edu
+files:
+  - name: test/IdentifyIssuesInCodeSnippetTest.java
+    visible: false
+  - name: src/main/java/jetbrains/refactoring/course/refactoring/purpose/Task.java
+    visible: true
+    placeholders:
+      - offset: 59
+        length: 233
+        placeholder_text: |-
+          public class Task {
+              public static void main(String[] args) {
+                  System.out.println(calculate_area(5.0, 8.0));
+              }
+
+              public static double calculate_area(double l, double w) {
+                  double length = l;
+                  double width = w;
+    
+                  double result = length * width;
+    
+                  return result;
+              }
+          }
