@@ -1,0 +1,5 @@
+type: theory
+custom_name: Refactoring to Design Patterns - Introduction
+files:
+  - name: src/main/java/jetbrains/refactoring/course/patterns/Main.java
+    visible: true

@@ -1,0 +1,15 @@
+type: edu
+custom_name: Factory Method Pattern
+files:
+  - name: src/main/java/jetbrains/refactoring/course/patterns/TransportationServiceFactory.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/patterns/Main.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/patterns/Bicycle.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/patterns/Car.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/patterns/Transport.java
+    visible: true
+  - name: test/Tests.java
+    visible: false
