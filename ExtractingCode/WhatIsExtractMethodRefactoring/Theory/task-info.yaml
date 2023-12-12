@@ -1,0 +1,5 @@
+type: theory
+custom_name: What is Extract Method refactoring?
+files:
+  - name: src/main/java/jetbrains/refactoring/course/extracting/Main.java
+    visible: true

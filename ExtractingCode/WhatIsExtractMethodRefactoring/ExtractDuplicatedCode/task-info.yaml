@@ -1,0 +1,35 @@
+type: edu
+custom_name: Extract duplicated code
+files:
+  - name: test/Tests.java
+    visible: false
+  - name: src/main/java/jetbrains/refactoring/course/extracting/Task.java
+    visible: true
+    placeholders:
+      - offset: 189
+        length: 849
+        placeholder_text: |-
+          public class Task {
+
+              public static int wordCount(String fileName) throws Exception {
+                  File file = new File(fileName);
+                  if (!file.exists() || file.isDirectory()) {
+                      throw new FileNotFoundException();
+                  }
+                  List<String> lines = Files.readAllLines(Paths.get(fileName));
+                  int wordCount = 0;
+                  for (String line : lines) {
+                      wordCount += line.split("\\s+").length;
+                  }
+                  return wordCount;
+              }
+
+              public static void copyFile(String srcName, String destName) throws Exception {
+                  File file = new File(srcName);
+                  if (!file.exists() || file.isDirectory()) {
+                      throw new FileNotFoundException();
+                  }
+                  File toFile = new File(destName);
+                  Files.copy(file.toPath(), toFile.toPath());
+              }
+          }
