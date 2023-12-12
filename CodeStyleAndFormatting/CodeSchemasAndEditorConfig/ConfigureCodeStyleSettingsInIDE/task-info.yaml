@@ -1,0 +1,9 @@
+type: edu
+custom_name: Configure code style settings in IDE
+files:
+  - name: .editorconfig
+    visible: true
+  - name: test/Tests.java
+    visible: false
+  - name: src/main/java/jetbrains/refactoring/course/formatting/Main.java
+    visible: true

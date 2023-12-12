@@ -1,0 +1,18 @@
+type: edu
+custom_name: Reformat the code using IDE
+files:
+  - name: test/Tests.java
+    visible: false
+  - name: src/main/java/jetbrains/refactoring/course/formatting/Task.java
+    visible: true
+    placeholders:
+      - offset: 161
+        length: 315
+        placeholder_text: |-
+          public static void funWithFormattingIssues() {
+                System.out.println ("This function definitely has formatting issues" );
+              System.out.println( "... that could be easily fixed using one shortcut");
+              for ( int i = 1; i <= 10; i++) {
+            System.out.println("Please, format me!") ;
+              }
+          }

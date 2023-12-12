@@ -1,0 +1,6 @@
+type: theory
+files:
+  - name: src/main/java/jetbrains/refactoring/course/formatting/Main.java
+    visible: true
+  - name: .editorconfig
+    visible: true
