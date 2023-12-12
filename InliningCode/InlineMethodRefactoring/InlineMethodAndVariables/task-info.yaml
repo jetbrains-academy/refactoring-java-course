@@ -1,0 +1,7 @@
+type: edu
+custom_name: Inline methods and variables
+files:
+  - name: test/Tests.java
+    visible: false
+  - name: src/main/java/jetbrains/refactoring/course/inlining/Task.java
+    visible: true

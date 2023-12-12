@@ -1,0 +1,5 @@
+type: theory
+custom_name: Inlining code - Introduction
+files:
+  - name: src/main/java/jetbrains/refactoring/course/inlining/Main.java
+    visible: true
