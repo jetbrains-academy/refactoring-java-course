@@ -1,33 +1,31 @@
 package jetbrains.refactoring.course.extracting;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 public class Task {
-    public static File getValidatedFile(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        if (!file.exists() || file.isDirectory()) {
-            throw new FileNotFoundException();
+    public static Path getValidatedPath(String filename) throws IOException {
+        Path path = Paths.get(filename);
+        if (!Files.exists(path) || !Files.isReadable(path)) {
+            throw new IOException("File " + filename + " does not exist or is not accessible for read.");
         }
-        return file;
+        return path;
     }
 
-    public static int wordCount(String fileName) throws Exception {
-        getValidatedFile(fileName);
-        List<String> lines = Files.readAllLines(Paths.get(fileName));
-        int wordCount = 0;
-        for (String line : lines) {
-            wordCount += line.split("\\s+").length;
-        }
-        return wordCount;
+    public static void processTextFile(String filename) throws IOException {
+        Path path = getValidatedPath(filename);
+        String content = Files.readString(path);
+        System.out.println("Content of the text file: " + content);
     }
 
-    public static void copyFile(String srcName, String destName) throws Exception {
-        File file = getValidatedFile(srcName);
-        File toFile = new File(destName);
-        Files.copy(file.toPath(), toFile.toPath());
+    public static void processImageFile(String filename) throws IOException {
+        Path path = getValidatedPath(filename);
+        BufferedImage image = ImageIO.read(path.toFile());
+        ImageIO.write(image, "jpg", Paths.get("newImage.jpg").toFile());
+        System.out.println("The image has been saved in a new format.");
     }
 }

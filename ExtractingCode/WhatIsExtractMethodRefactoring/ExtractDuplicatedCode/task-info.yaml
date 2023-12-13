@@ -6,30 +6,27 @@ files:
   - name: src/main/java/jetbrains/refactoring/course/extracting/Task.java
     visible: true
     placeholders:
-      - offset: 189
-        length: 849
+      - offset: 229
+        length: 932
         placeholder_text: |-
           public class Task {
-
-              public static int wordCount(String fileName) throws Exception {
-                  File file = new File(fileName);
-                  if (!file.exists() || file.isDirectory()) {
-                      throw new FileNotFoundException();
+          
+              public static void processTextFile(String filename) throws IOException {
+                  Path path = Paths.get(filename);
+                  if (!Files.exists(path) || !Files.isReadable(path)) {
+                      throw new IOException("File " + filename + " does not exist or is not accessible for read.");
                   }
-                  List<String> lines = Files.readAllLines(Paths.get(fileName));
-                  int wordCount = 0;
-                  for (String line : lines) {
-                      wordCount += line.split("\\s+").length;
-                  }
-                  return wordCount;
+                  String content = Files.readString(path);
+                  System.out.println("Content of the text file: " + content);
               }
-
-              public static void copyFile(String srcName, String destName) throws Exception {
-                  File file = new File(srcName);
-                  if (!file.exists() || file.isDirectory()) {
-                      throw new FileNotFoundException();
+          
+              public static void processImageFile(String filename) throws IOException {
+                  Path path = Paths.get(filename);
+                  if (!Files.exists(path) || !Files.isReadable(path)) {
+                      throw new IOException("File " + filename + " does not exist or is not accessible for read.");
                   }
-                  File toFile = new File(destName);
-                  Files.copy(file.toPath(), toFile.toPath());
+                  BufferedImage image = ImageIO.read(path.toFile());
+                  ImageIO.write(image, "jpg", Paths.get("newImage.jpg").toFile());
+                  System.out.println("The image has been saved in a new format.");
               }
           }
