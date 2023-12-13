@@ -6,9 +6,9 @@ files:
   - name: src/main/java/jetbrains/refactoring/course/formatting/Task.java
     visible: true
     placeholders:
-      - offset: 167
-        length: 136
+      - offset: 170
+        length: 139
         placeholder_text: |-
-          public static void funWithLittleFormattingIssues() {
+          public static void methodWithLittleFormattingIssues() {
           System.out.println ("This function definitely has formatting issues" ) ;
           }

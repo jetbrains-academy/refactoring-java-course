@@ -2,10 +2,10 @@ package jetbrains.refactoring.course.formatting;
 
 public class Task {
     public static void main(String[] args) {
-        funWithLittleFormattingIssues();
+        methodWithLittleFormattingIssues();
     }
 
-    public static void funWithLittleFormattingIssues() {
+    public static void methodWithLittleFormattingIssues() {
         System.out.println("This function definitely has formatting issues");
     }
 }
