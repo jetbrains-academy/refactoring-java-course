@@ -1,0 +1,19 @@
+type: edu
+custom_name: Extract magic numbers
+files:
+  - name: src/main/java/jetbrains/refactoring/course/extracting/Task.java
+    visible: true
+    placeholders:
+      - offset: 50
+        length: 810
+        placeholder_text: "public class Task {\n\n    public static void main(String[]\
+      \ args) {\n        double photonEnergy = calculatePhotonEnergy(0.5e-6);\n  \
+      \      double photonMass = calculatePhotonMass(photonEnergy);\n        \n  \
+      \      System.out.println(\"Photon energy: \" + photonEnergy + \" Joules\");\n\
+      \        System.out.println(\"Photon mass: \" + photonMass + \" kg\");\n   \
+      \ }\n\n    public static double calculatePhotonEnergy(double waveLength) {\n\
+      \        double frequency = 299792458.0 / waveLength;\n        return 6.62607015e-34\
+      \ * frequency;\n    }\n\n    public static double calculatePhotonMass(double\
+      \ energy) {\n        return energy / (299792458.0 * 299792458.0);\n    }\n}"
+  - name: test/ExtractMagicNumbersTest.java
+    visible: false

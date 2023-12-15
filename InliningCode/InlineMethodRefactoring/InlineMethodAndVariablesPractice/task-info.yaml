@@ -1,0 +1,28 @@
+type: edu
+custom_name: Inline methods and variables
+files:
+  - name: src/main/java/jetbrains/refactoring/course/inlining/Task.java
+    visible: true
+    placeholders:
+      - offset: 135
+        length: 313
+        placeholder_text: |-
+          public class Task {
+          
+              public static BufferedWriter getBufferedWriter() throws IOException {
+                  FileWriter fileWriter = new FileWriter("file.txt");
+                  BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                  return bufferedWriter;
+              }
+          
+              public static void main(String[] args) {
+                  try (BufferedWriter bufferedWriter = getBufferedWriter()) {
+                      String text = "Hello  World!";
+                      bufferedWriter.write(text);
+                  } catch (IOException ex) {
+                      System.out.println(ex.getMessage());
+                  }
+              }
+          }
+  - name: test/InliningTest.java
+    visible: false
