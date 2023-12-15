@@ -1,0 +1,9 @@
+type: edu
+custom_name: Reformat the code according to style settings
+files:
+  - name: src/main/java/jetbrains/refactoring/course/formatting/Main.java
+    visible: true
+  - name: .editorconfig
+    visible: true
+  - name: test/ReformatCodeBasedOnEditorConfigSettingsTest.java
+    visible: false

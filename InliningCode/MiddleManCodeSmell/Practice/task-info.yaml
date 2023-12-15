@@ -3,5 +3,5 @@ custom_name: Middle Man code smell - Practice
 files:
   - name: src/main/java/jetbrains/refactoring/course/inlining/Main.java
     visible: true
-  - name: test/Tests.java
+  - name: test/MiddleManTest.java
     visible: false

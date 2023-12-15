@@ -2,6 +2,6 @@ type: framework
 custom_name: What are Pull Up and Push Down refactorings?
 content:
   - WhatArePullUpAndPushDownRefactorings
-  - ApplyPullUpRefactoring
-  - ApplyPushDownRefactoring
+  - ApplyPullUpRefactoringPractice
+  - ApplyPushDownRefactoringPractice
 is_template_based: false

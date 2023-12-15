@@ -1,0 +1,11 @@
+type: edu
+custom_name: Apply Push Down refactoring
+files:
+  - name: src/main/java/jetbrains/refactoring/course/moving/Animal.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/moving/Cat.java
+    visible: true
+  - name: src/main/java/jetbrains/refactoring/course/moving/Dog.java
+    visible: true
+  - name: test/PushDownTest.java
+    visible: false
