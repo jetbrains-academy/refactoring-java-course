@@ -22,7 +22,6 @@ intellij {
 allprojects {
     repositories {
         mavenCentral()
-        mavenLocal()
         maven {
             // To be able to use the Kotlin test framework for the tests - https://github.com/jetbrains-academy/kotlin-test-framework
             url = uri("https://packages.jetbrains.team/maven/p/kotlin-test-framework/kotlin-test-framework")
@@ -121,7 +120,7 @@ configure(subprojects.filter { it.name.endsWith("Practice") }) {
     }
 
     dependencies {
-        val testSystemVersion = "2.1.0"
+        val testSystemVersion = "2.1.1"
         testImplementation("org.jetbrains.academy.test.system:java-psi:$testSystemVersion")
         testImplementation("org.jetbrains.academy.test.system:common:$testSystemVersion")
     }
