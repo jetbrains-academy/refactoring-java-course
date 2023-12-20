@@ -1,3 +1,8 @@
+import org.jetbrains.academy.test.system.core.models.Visibility;
+import org.jetbrains.academy.test.system.core.models.classes.ClassType;
+import org.jetbrains.academy.test.system.core.models.classes.TestClass;
+import org.jetbrains.academy.test.system.core.models.method.TestMethod;
+import org.jetbrains.academy.test.system.core.models.variable.TestVariable;
 import org.jetbrains.academy.test.system.java.test.BaseIjTestClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,14 +14,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 public class StrategyPatternTest extends BaseIjTestClass {
 
     private static String mainText;
-    private static String orderText;
     private static String paymentProcessorText;
-    private static String bitcoinText;
-    private static String creditText;
-    private static String payPalText;
+    private static TestClass orderClass;
+    private static TestClass paymentProcessorClass;
+    private static TestClass paymentStrategyClass;
+    private static TestClass bitcoinClass;
+    private static TestClass creditClass;
+    private static TestClass payPalClass;
 
     @BeforeAll
     static void beforeAll() throws IOException {
@@ -24,57 +33,204 @@ public class StrategyPatternTest extends BaseIjTestClass {
         Path mainPath = Paths.get(taskDirectoryPath,
                 "src/main/java/jetbrains/refactoring/course/patterns/Main.java");
         mainText = Files.readString(mainPath);
-        Path orderPath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/patterns/Order.java");
-        orderText = Files.readString(orderPath);
         Path paymentProcessorPath = Paths.get(taskDirectoryPath,
                 "src/main/java/jetbrains/refactoring/course/patterns/processor/PaymentProcessor.java");
         paymentProcessorText = Files.readString(paymentProcessorPath);
-        Path bitcoinPath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/patterns/strategy/BitcoinPayment.java");
-        bitcoinText = Files.readString(bitcoinPath);
-        Path creditPath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/patterns/strategy/CreditCardPayment.java");
-        creditText = Files.readString(creditPath);
-        Path payPalPath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/patterns/strategy/PayPalPayment.java");
-        payPalText = Files.readString(payPalPath);
+
+        paymentProcessorClass = new TestClass(
+                "PaymentProcessor",
+                "jetbrains.refactoring.course.patterns.processor",
+                Visibility.PUBLIC,
+                ClassType.CLASS,
+                List.of(
+                        new TestVariable(
+                                "paymentStrategy",
+                                "PaymentStrategy",
+                                null,
+                                Visibility.PRIVATE,
+                                false,
+                                true,
+                                false
+                        )
+                ),
+                List.of(
+                        new TestMethod(
+                                "processOrderPayment",
+                                "void",
+                                List.of(new TestVariable("amount", "double")),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                emptyList()
+        );
+
+        orderClass = new TestClass(
+                "Order",
+                "jetbrains.refactoring.course.patterns",
+                Visibility.PUBLIC,
+                ClassType.CLASS,
+                List.of(
+                        new TestVariable(
+                                "totalAmount",
+                                "double",
+                                null,
+                                Visibility.PRIVATE,
+                                true,
+                                true,
+                                false
+                        ),
+                        new TestVariable(
+                                "date",
+                                "LocalDate",
+                                null,
+                                Visibility.PRIVATE,
+                                true,
+                                true,
+                                false
+                        )
+                ),
+                List.of(
+                        new TestMethod(
+                                "getTotalAmount",
+                                "double",
+                                emptyList(),
+                                Visibility.PUBLIC
+                        ),
+                        new TestMethod(
+                                "getDate",
+                                "LocalDate",
+                                emptyList(),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                emptyList()
+        );
+
+        paymentStrategyClass = new TestClass(
+                "PaymentStrategy",
+                "jetbrains.refactoring.course.patterns.strategy",
+                Visibility.PUBLIC,
+                ClassType.INTERFACE,
+                emptyList(),
+                List.of(
+                        new TestMethod(
+                                "processPayment",
+                                "void",
+                                List.of(new TestVariable("amount", "double")),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                emptyList()
+        );
+
+        bitcoinClass = new TestClass(
+                "BitcoinPayment",
+                "jetbrains.refactoring.course.patterns.strategy",
+                Visibility.PUBLIC,
+                ClassType.CLASS,
+                emptyList(),
+                List.of(
+                        new TestMethod(
+                                "processPayment",
+                                "void",
+                                List.of(new TestVariable("amount", "double")),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                List.of(paymentStrategyClass)
+        );
+
+        creditClass = new TestClass(
+                "CreditCardPayment",
+                "jetbrains.refactoring.course.patterns.strategy",
+                Visibility.PUBLIC,
+                ClassType.CLASS,
+                emptyList(),
+                List.of(
+                        new TestMethod(
+                                "processPayment",
+                                "void",
+                                List.of(new TestVariable("amount", "double")),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                List.of(paymentStrategyClass)
+        );
+
+        payPalClass = new TestClass(
+                "PayPalPayment",
+                "jetbrains.refactoring.course.patterns.strategy",
+                Visibility.PUBLIC,
+                ClassType.CLASS,
+                emptyList(),
+                List.of(
+                        new TestMethod(
+                                "processPayment",
+                                "void",
+                                List.of(new TestVariable("amount", "double")),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                List.of(paymentStrategyClass)
+        );
     }
 
     @Test
-    public void paymentTest() throws Exception {
+    public void paymentProcessorClassTest() throws Exception {
+        Assertions.assertDoesNotThrow(() -> {
+            Class<?> clazz = paymentProcessorClass.checkBaseDefinition();
+            paymentProcessorClass.checkDeclaredMethods(clazz);
+            paymentProcessorClass.checkFieldsDefinition(clazz, true);
+            }, "Please, create a PaymentProcessor class with a constructor parameter paymentStrategy and processOrderPayment method");
+
         setUp();
         myFixture.configureByText("PaymentProcessor.java", paymentProcessorText);
-        Assertions.assertTrue(hasClass("PaymentProcessor"),
-                "Please, create a PaymentProcessor class");
-        Assertions.assertTrue(hasField("paymentStrategy"),
-                "Please, define a constructor parameter paymentStrategy in PaymentProcessor class");
-        Assertions.assertTrue(hasMethod("processOrderPayment"),
-                "Please, define the processOrderPayment method in PaymentProcessor class");
         Assertions.assertTrue(hasExpressionWithParent("paymentStrategy.processPayment", "processOrderPayment", true),
                 "Please, invoke the processPayment method from paymentStrategy in processOrderPayment method.");
-        myFixture.configureByText("BitcoinPayment.java", bitcoinText);
-        Assertions.assertTrue(hasClass("BitcoinPayment"),
-                "Please, create a BitcoinPayment class");
-        Assertions.assertTrue(hasMethod("processPayment"),
-                "Please, override the processPayment method in the BitcoinPayment class");
-        myFixture.configureByText("CreditCardPayment.java", creditText);
-        Assertions.assertTrue(hasClass("CreditCardPayment"),
-                "Please, create a CreditCardPayment class");
-        Assertions.assertTrue(hasMethod("processPayment"),
-                "Please, override the processPayment method in the CreditCardPayment class");
-        myFixture.configureByText("PayPalPayment.java", payPalText);
-        Assertions.assertTrue(hasClass("PayPalPayment"),
-                "Please, create a PayPalPayment class");
-        Assertions.assertTrue(hasMethod("processPayment"),
-                "Please, override the processPayment method in the PayPalPayment class");
-        myFixture.configureByText("Order.java", orderText);
-        Assertions.assertFalse(hasMethod("processPayment"),
-                "Please, remove the processPayment method from the Oder class");
-        Assertions.assertFalse(hasField("paymentMethod"),
-                "Please, remove the paymentMethod field from the Oder class");
-        Assertions.assertTrue(hasMethod("getTotalAmount"),
-                "Please, implement getter for the totalAmount field in the Order class");
+    }
+
+    @Test
+    public void bitcoinPaymentClassTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            Class<?> clazz = bitcoinClass.checkBaseDefinition();
+            bitcoinClass.checkDeclaredMethods(clazz);
+            }, "Please, create a BitcoinPayment class with processPayment method");
+    }
+
+    @Test
+    public void creditCardPaymentClassTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            Class<?> clazz = creditClass.checkBaseDefinition();
+            creditClass.checkDeclaredMethods(clazz);
+            }, "Please, create a CreditCardPayment class with processPayment method");
+    }
+
+    @Test
+    public void payPalPaymentClassTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            Class<?> clazz = payPalClass.checkBaseDefinition();
+            payPalClass.checkDeclaredMethods(clazz);
+            }, "Please, create a PayPalPayment class with processPayment method");
+    }
+
+    @Test
+    public void orderClassTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            Class<?> clazz = orderClass.checkBaseDefinition();
+            orderClass.checkFieldsDefinition(clazz, true);
+            }, "Please, transform the Order class into a class that only stores two fields: totalAmount: Double and date: LocalDate. Implement getters for these fields.");
     }
 
     @Test

@@ -120,9 +120,10 @@ configure(subprojects.filter { it.name.endsWith("Practice") }) {
     }
 
     dependencies {
-        val testSystemVersion = "2.1.1"
+        val testSystemVersion = "2.1.2"
         testImplementation("org.jetbrains.academy.test.system:java-psi:$testSystemVersion")
         testImplementation("org.jetbrains.academy.test.system:common:$testSystemVersion")
+        testImplementation("org.jetbrains.academy.test.system:core:$testSystemVersion")
     }
 }
 
