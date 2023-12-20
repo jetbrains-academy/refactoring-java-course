@@ -2,8 +2,8 @@ package jetbrains.refactoring.course.moving.car;
 
 public class Car {
     private final int gearsNumber;
-    public boolean engineStarted;
-    private int gear;
+    public boolean engineStarted = false;
+    private int gear = 0;
 
     public Car(int gearsNumber) {
         this.gearsNumber = gearsNumber;

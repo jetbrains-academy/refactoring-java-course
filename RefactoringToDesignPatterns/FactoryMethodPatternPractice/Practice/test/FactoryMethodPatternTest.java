@@ -1,3 +1,8 @@
+import org.jetbrains.academy.test.system.core.models.Visibility;
+import org.jetbrains.academy.test.system.core.models.classes.ClassType;
+import org.jetbrains.academy.test.system.core.models.classes.TestClass;
+import org.jetbrains.academy.test.system.core.models.method.TestMethod;
+import org.jetbrains.academy.test.system.core.models.variable.TestVariable;
 import org.jetbrains.academy.test.system.java.test.BaseIjTestClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,31 +12,49 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+
+import static java.util.Collections.emptyList;
 
 public class FactoryMethodPatternTest extends BaseIjTestClass {
-
-    private static String factoryText;
     private static String mainText;
+    private static TestClass factoryClass;
 
     @BeforeAll
     static void beforeAll() throws IOException {
         String taskDirectoryPath = System.getProperty("user.dir");
-        Path factoryFilePath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/patterns/TransportationServiceFactory.java");
-        factoryText = Files.readString(factoryFilePath);
         Path mainPath = Paths.get(taskDirectoryPath,
                 "src/main/java/jetbrains/refactoring/course/patterns/Main.java");
         mainText = Files.readString(mainPath);
+
+        factoryClass = new TestClass(
+                "TransportationServiceFactory",
+                "jetbrains.refactoring.course.patterns",
+                Visibility.PUBLIC,
+                ClassType.CLASS,
+                emptyList(),
+                List.of(
+                        new TestMethod(
+                                "getTransportation",
+                                "Transport",
+                                List.of(
+                                        new TestVariable("transport", "String")
+                                ),
+                                Visibility.PUBLIC
+                        )
+                ),
+                false,
+                emptyList(),
+                emptyList()
+        );
     }
 
     @Test
-    public void transportationServiceFactoryTest() throws Exception {
-        setUp();
-        myFixture.configureByText("TransportationServiceFactory.java", factoryText);
-        Assertions.assertTrue(hasClass("TransportationServiceFactory"),
-                "Please, create a TransportationServiceFactory class");
-        Assertions.assertTrue(hasMethod("getTransportation"),
-                "Please, define the getTransportation method in TransportationServiceFactory class");
+    public void transportationServiceFactoryTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            Class<?> clazz = factoryClass.checkBaseDefinition();
+            factoryClass.checkDeclaredMethods(clazz);
+        }, "Please, create a TransportationServiceFactory class with getTransportation method");
     }
 
     @Test
