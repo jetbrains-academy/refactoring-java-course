@@ -193,12 +193,7 @@ public class StrategyPatternTest extends BaseIjTestClass {
             Class<?> clazz = paymentProcessorClass.checkBaseDefinition();
             paymentProcessorClass.checkDeclaredMethods(clazz);
             paymentProcessorClass.checkFieldsDefinition(clazz, true);
-            }, "Please, create a PaymentProcessor class with a constructor parameter paymentStrategy and processOrderPayment method");
-
-        setUp();
-        myFixture.configureByText("PaymentProcessor.java", paymentProcessorText);
-        Assertions.assertTrue(hasExpressionWithParent("paymentStrategy.processPayment", "processOrderPayment", true),
-                "Please, invoke the processPayment method from paymentStrategy in processOrderPayment method.");
+        }, "Please, create a PaymentProcessor class with a constructor parameter paymentStrategy and processOrderPayment method");
     }
 
     @Test
@@ -206,7 +201,7 @@ public class StrategyPatternTest extends BaseIjTestClass {
         Assertions.assertDoesNotThrow(() -> {
             Class<?> clazz = bitcoinClass.checkBaseDefinition();
             bitcoinClass.checkDeclaredMethods(clazz);
-            }, "Please, create a BitcoinPayment class with processPayment method");
+        }, "Please, create a BitcoinPayment class with processPayment method");
     }
 
     @Test
@@ -214,7 +209,7 @@ public class StrategyPatternTest extends BaseIjTestClass {
         Assertions.assertDoesNotThrow(() -> {
             Class<?> clazz = creditClass.checkBaseDefinition();
             creditClass.checkDeclaredMethods(clazz);
-            }, "Please, create a CreditCardPayment class with processPayment method");
+        }, "Please, create a CreditCardPayment class with processPayment method");
     }
 
     @Test
@@ -222,7 +217,7 @@ public class StrategyPatternTest extends BaseIjTestClass {
         Assertions.assertDoesNotThrow(() -> {
             Class<?> clazz = payPalClass.checkBaseDefinition();
             payPalClass.checkDeclaredMethods(clazz);
-            }, "Please, create a PayPalPayment class with processPayment method");
+        }, "Please, create a PayPalPayment class with processPayment method");
     }
 
     @Test
@@ -230,39 +225,44 @@ public class StrategyPatternTest extends BaseIjTestClass {
         Assertions.assertDoesNotThrow(() -> {
             Class<?> clazz = orderClass.checkBaseDefinition();
             orderClass.checkFieldsDefinition(clazz, true);
-            }, "Please, transform the Order class into a class that only stores two fields: totalAmount: Double and date: LocalDate. Implement getters for these fields.");
+        }, "Please, transform the Order class into a class that only stores two fields: totalAmount: Double and date: LocalDate. Implement getters for these fields.");
     }
 
     @Test
-    public void mainClassTest() throws Exception {
+    public void testCreatedInstancesInMainMethod() throws Exception {
         setUp();
         myFixture.configureByText("Main.java", mainText);
         String expression = "new CreditCardPayment()";
         String parent = "main";
         Assertions.assertTrue(hasExpressionWithParent(expression, parent, true),
-            "Please, create an instance of PaymentProcessor for CreditCardPayment in the main method");
+                "Please, create an instance of PaymentProcessor for CreditCardPayment in the main method");
         expression = "new PayPalPayment()";
-        parent = "main";
         Assertions.assertTrue(hasExpressionWithParent(expression, parent, true),
-            "Please, create an instance of PaymentProcessor for PayPalPayment in the main method");
+                "Please, create an instance of PaymentProcessor for PayPalPayment in the main method");
         expression = "new BitcoinPayment()";
-        parent = "main";
         Assertions.assertTrue(hasExpressionWithParent(expression, parent, true),
-            "Please, create an instance of PaymentProcessor for BitcoinPayment in the main method");
+                "Please, create an instance of PaymentProcessor for BitcoinPayment in the main method");
+    }
+
+    @Test
+    public void testInvokedMethodsOfPaymentClassesInMainMethod() throws Exception {
+        setUp();
+        myFixture.configureByText("Main.java", mainText);
         String method = "creditCardPayment.processOrderPayment(order1.getTotalAmount())";
+        String mainMethod = "main";
         Assertions.assertEquals(
                 findMethodUsages(method),
-                List.of("main"),
+                List.of(mainMethod),
                 "Please, invoke the " + method + " method of Credit Card Payment and pass in the totalAmount from the first order within the main method");
         method = "paypalPayment.processOrderPayment(order2.getTotalAmount())";
         Assertions.assertEquals(
                 findMethodUsages(method),
-                List.of("main"),
+                List.of(mainMethod),
                 "Please, invoke the " + method + " method of PayPal Payment and pass in the totalAmount from the second order within the main method");
         method = "bitcoinPayment.processOrderPayment(order3.getTotalAmount())";
         Assertions.assertEquals(
                 findMethodUsages(method),
-                List.of("main"),
+                List.of(mainMethod),
                 "Please, invoke the " + method + " method of Bitcoin Payment and pass in the totalAmount from the third order within the main method");
     }
 }

@@ -24,12 +24,12 @@ public class ExtractMagicNumbersTest extends BaseIjTestClass {
     public void testExtractedConstant() throws Exception {
         setUp();
         myFixture.configureByText("Task.java", sourceText);
-        String elementValue = "299792458.0";
-        Assertions.assertTrue(hasConstantWithGivenValue(elementValue),
-                "Please, create constant values for " + elementValue);
-        elementValue = "6.62607015e-34";
-        Assertions.assertTrue(hasConstantWithGivenValue(elementValue),
-                "Please, create constant values for " + elementValue);
+        String speedOfLight = "299792458.0";
+        Assertions.assertTrue(hasConstantWithGivenValue(speedOfLight),
+                "Please, create constant values for " + speedOfLight);
+        String planckConstant = "6.62607015e-34";
+        Assertions.assertTrue(hasConstantWithGivenValue(planckConstant),
+                "Please, create constant values for " + planckConstant);
         String propertyName = "waveLength";
         Assertions.assertTrue(hasLocalVariable(propertyName),
                 "Please, create property for " + propertyName);
