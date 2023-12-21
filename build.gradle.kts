@@ -10,7 +10,6 @@ plugins {
     java
     val kotlinVersion = "1.9.0"
     id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
-    id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
 }
 
 intellij {
@@ -110,7 +109,7 @@ configure(subprojects.filter { it.name != "common" }) {
     }
 }
 
-configure(subprojects.filter { it.name.endsWith("Practice") }) {
+configure(subprojects.filter { it.name.endsWith("Practice") || it.name.endsWith("task") }) {
     plugins.apply("org.jetbrains.intellij")
 
     intellij {
@@ -124,14 +123,5 @@ configure(subprojects.filter { it.name.endsWith("Practice") }) {
         testImplementation("org.jetbrains.academy.test.system:java-psi:$testSystemVersion")
         testImplementation("org.jetbrains.academy.test.system:common:$testSystemVersion")
         testImplementation("org.jetbrains.academy.test.system:core:$testSystemVersion")
-    }
-}
-
-configure(subprojects.filter { it.name == "CodeStyleAndFormatting-CodeSchemasAndEditorConfig-ReformatTheCodeAccordingToStyleSettingsPractice" }) {
-    apply {
-        plugin("org.jlleitschuh.gradle.ktlint")
-    }
-    tasks.withType<KotlinCompile> {
-        dependsOn("ktlintCheck")
     }
 }

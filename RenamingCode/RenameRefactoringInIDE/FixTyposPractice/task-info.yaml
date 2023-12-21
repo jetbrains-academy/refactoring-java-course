@@ -2,6 +2,48 @@ type: edu
 custom_name: "Fix typos, change the code to comply with naming rules and camelCase\
   \ convention"
 files:
+  - name: src/main/java/jetbrains/refactoring/course/renaming/Student.java
+    visible: true
+    placeholders:
+      - offset: 48
+        length: 892
+        placeholder_text: |-
+          public class Student {
+
+              private String name;
+              private int age;
+              private double averageScore;
+
+              public Student(String name, int age, double averageScore) {
+                  this.name = name;
+                  this.age = age;
+                  this.averageScore = averageScore;
+              }
+
+              public String getgradestatus() {
+                  if (averageScore >= 90.0 && averageScore <= 100.0) {
+                      return "Excellent";
+                  } else if (averageScore >= 80.0 && averageScore < 90.0) {
+                      return "Good";
+                  } else if (averageScore >= 70.0 && averageScore < 80.0) {
+                      return "Average";
+                  } else {
+                      return "Fail";
+                  }
+              }
+
+              public void SetName(String newName) {
+                  this.name = newName;
+              }
+
+              public void setaGe(int newAge) {
+                  this.age = newAge;
+              }
+
+              public void setAvergeScore(double newScore) {
+                  this.averageScore = newScore;
+              }
+          }
   - name: src/main/java/jetbrains/refactoring/course/renaming/University.java
     visible: true
     placeholders:
@@ -30,48 +72,6 @@ files:
                       return students.get(index).getgradestatus();
                   }
                   return "Invalid index";
-              }
-          }
-  - name: src/main/java/jetbrains/refactoring/course/renaming/Student.java
-    visible: true
-    placeholders:
-      - offset: 48
-        length: 892
-        placeholder_text: |-
-          public class Student {
-          
-              private String name;
-              private int age;
-              private double averageScore;
-          
-              public Student(String name, int age, double averageScore) {
-                  this.name = name;
-                  this.age = age;
-                  this.averageScore = averageScore;
-              }
-          
-              public String getgradestatus() {
-                  if (averageScore >= 90.0 && averageScore <= 100.0) {
-                      return "Excellent";
-                  } else if (averageScore >= 80.0 && averageScore < 90.0) {
-                      return "Good";
-                  } else if (averageScore >= 70.0 && averageScore < 80.0) {
-                      return "Average";
-                  } else {
-                      return "Fail";
-                  }
-              }
-          
-              public void SetName(String newName) {
-                  this.name = newName;
-              }
-          
-              public void setaGe(int newAge) {
-                  this.age = newAge;
-              }
-          
-              public void setAvergeScore(double newScore) {
-                  this.averageScore = newScore;
               }
           }
   - name: test/RenamingTest.java

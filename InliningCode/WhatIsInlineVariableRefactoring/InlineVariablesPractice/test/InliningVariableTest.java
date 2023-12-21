@@ -25,8 +25,8 @@ public class InliningVariableTest extends BaseIjTestClass {
         setUp();
         myFixture.configureByText("Task.java", sourceText);
         Assertions.assertFalse(hasLocalVariable("fileExists"),
-            "Please, identify unnecessary variables");
+            "Please, inline the \"fileExists\" variable");
         Assertions.assertFalse(hasLocalVariable("content"),
-            "Please, identify unnecessary variables");
+            "Please, inline the \"content\" variable");
     }
 }
