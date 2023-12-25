@@ -29,7 +29,7 @@ public class MovingTest extends BaseIjTestClass {
         setUp();
         myFixture.configureByText("Car.java", carText);
         Assertions.assertTrue(hasClass("Car"),
-                "Please, move the Car class to a separate file");
+                "Please, move the Car class to a separate file in the car package");
     }
 
     @Test
@@ -37,6 +37,6 @@ public class MovingTest extends BaseIjTestClass {
         setUp();
         myFixture.configureByText("Driver.java", driverText);
         Assertions.assertTrue(hasClass("Driver"),
-                "Please, move the Driver class to a separate file");
+                "Please, move the Driver class to a separate file in the driver package");
     }
 }

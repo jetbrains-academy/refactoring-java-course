@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 public class ExtractMagicNumbersTest extends BaseIjTestClass {
 
     private static String sourceText;
+    private static final String SPEED_OF_LIGHT = "299792458.0";
+    private static final String PLANCK_CONSTANT = "6.62607015e-34";
 
     @BeforeAll
     static void beforeAll() throws IOException {
@@ -24,12 +26,10 @@ public class ExtractMagicNumbersTest extends BaseIjTestClass {
     public void testExtractedConstant() throws Exception {
         setUp();
         myFixture.configureByText("Task.java", sourceText);
-        String speedOfLight = "299792458.0";
-        Assertions.assertTrue(hasConstantWithGivenValue(speedOfLight),
-                "Please, create constant values for " + speedOfLight);
-        String planckConstant = "6.62607015e-34";
-        Assertions.assertTrue(hasConstantWithGivenValue(planckConstant),
-                "Please, create constant values for " + planckConstant);
+        Assertions.assertTrue(hasConstantWithGivenValue(SPEED_OF_LIGHT),
+                "Please, create constant values for " + SPEED_OF_LIGHT);
+        Assertions.assertTrue(hasConstantWithGivenValue(PLANCK_CONSTANT),
+                "Please, create constant values for " + PLANCK_CONSTANT);
         String propertyName = "waveLength";
         Assertions.assertTrue(hasLocalVariable(propertyName),
                 "Please, create property for " + propertyName);
