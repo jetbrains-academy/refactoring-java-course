@@ -1,5 +1,23 @@
 # Introduction
 
+Hello!
+
+Welcome to the **Introduction to IDE Java Code Refactoring** course.✨
+
+<p align="center">
+    <img src="../../../common/src/main/resources/images/Introduction/Introduction/introduction_intro.png" alt="Introduction" width="400"/>
+</p>
+
+This course will introduce you to refactorings and the IDE features that will help you to perform them in an effective way.
+You will learn to recognize refactoring opportunities in code and to deal with them.
+Using automatic IDE refactorings, you will transform code to improve its structure, readability, and maintainability.
+
+The course consists of 8 sections. Each section focuses on one group of refactorings and
+provides brief theory and several small tasks for practice.
+We will move on from small local refactoring changes to more complex ones, which affect the entire project architecture.
+
+Embark on a coding journey with refactoring and design patterns – your path to coding excellence begins now! 🚀
+
 <div class="hint" title="Course Plan"> 
 
 - **[Section 1: Refactoring and its purpose](course://RefactoringAndItsPurpose)**
