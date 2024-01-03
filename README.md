@@ -1,252 +1,103 @@
-# JetBrains Academy Java Course Template
-
 [![official project](https://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Gradle Build](https://github.com/jetbrains-academy/refactoring-java-course/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/jetbrains-academy/refactoring-java-course/actions/workflows/gradle-build.yml)
 
-> **Note**
->
-> Click the <kbd>Use this template</kbd> button and clone it in IntelliJ IDEA.
+# Introduction to IDE Code Refactoring in Java
 
-**JetBrains Academy Java course template** is a repository that provides a
-pure template to make it easier to create a new Java course with the [JetBrains Academy
-plugin][ref:plugin.marketplace] (check out the [Creating a repository from a template][gh:template] article).
+This course will introduce you to refactorings and the IDE features that will help you to perform them in an effective way.
+You will learn to recognize refactoring opportunities in code and to deal with them.
+Using automatic IDE refactorings, you will transform code to improve its structure, readability, and maintainability.
 
-The main goal of this template is to speed up the setup phase
-of Java course development for both new and experienced educators
-by preconfiguring the project scaffold and CI,
-linking to the proper documentation pages, and keeping everything organized.
+The course consists of 8 sections. Each section focuses on one group of refactorings and
+provides brief theory and several small tasks for practice.
+We will move on from small local refactoring changes to more complex ones, which affect the entire project architecture.
 
-If you're still not quite sure what this is all about, read our introduction: [What is the JetBrains Academy plugin?][docs:intro]
+Topics covered:
 
-> **Note**
->
-> Click the <kbd>Watch</kbd> button on the top to be notified about releases containing new features and fixes.
+- refactoring definition;
+- code quality and code smells;
+- kinds of refactoring techniques;
+- IDE refactoring features;
+- code style and formatting;
+- code style schema and EditorConfig;
+- automatic formatting using IDE;
+- naming rules;
+- rename refactoring;
+- move refactoring;
+- pull up and push down refactoring;
+- extract refactoring;
+- inline refactoring;
+- design patterns and their relationships with refactoring.
 
-### Table of contents
 
-In this README, we will highlight the following elements of template-project creation:
+## Technical requirements
 
-- [Getting started](#getting-started)
-- [Gradle configuration](#gradle-configuration)
-- [Course info configuration file](#course-info-configuration-file)
-- [Course ignore file](#course-ignore-file)
-- [Sample code](#sample-code)
-- [Testing](#testing)
-- [Predefined Run/Debug configurations](#predefined-rundebug-configurations)
-- [Continuous integration](#continuous-integration)
-- [Useful links](#useful-links)
+Before starting this course, check the following requirements.
+
+1. Your computer needs to have a stable internet connection.
+2. Git version control system needs to be installed on your computer (link to the git site: https://git-scm.com/).
+3. Make sure that the path to the root folder of the course does not contain spaces, special characters, or non-Latin characters.
+4. Make sure that you use the [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?_ga=2.189310830.494255415.1682514714-1823138827.1669894241&_gac=1.83806948.1682684894.Cj0KCQjw3a2iBhCFARIsAD4jQB3QkDU43KtbIx2HzEz02KvcN7Ma3QGzkIbyX4KS3H4x8b2bl9p4EfYaAvWsEALw_wcB&_gl=1*1h13lr8*_ga*MTgyMzEzODgyNy4xNjY5ODk0MjQx*_ga_9J976DJZ68*MTY4MjY5NDIyMy4xMjUuMS4xNjgyNjk0MjM4LjQ1LjAuMA..#section=windows) with version at least `2023.1.1`.
+5. Make sure that you use the [JetBrains Academy](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy) plugin with version at least `2023.1`.
+
+The course is integrated into the [IntelliJ IDEA IDE](https://www.jetbrains.com/idea/), which has a free Community license.
+You can use this license to complete the course.
+If you have some troubles with the course installation, feel free to contact us by email at education@jetbrains.com.
 
 ## Getting started
 
-Before we dive into course development and everything related to it, it's worth mentioning the benefits of using GitHub Templates.
-By creating a new project with the current template, you start with no history or reference to this repository.
-This allows you to create a new repository easily, without copying and pasting previous content, cloning repositories, or clearing the history manually.
+This course is [available](https://plugins.jetbrains.com/plugin/23048-introduction-to-ide-code-refactoring) on JetBrains
+Marketplace and can be installed from the IntelliJ IDEA IDE directly, but you can also use it in the Course Creator mode
+or create a course archive from the source code.
 
-All you need to do is click the <kbd>Use this template</kbd> button (you must be logged in with your GitHub account).
+### Getting started: create a course preview from the source code
 
-![Use this template][file:use-template-blur]
+You can create a [course preview](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html#preview_course) from the source code:
+1. Clone the repository:
+    ```text
+    git clone https://github.com/jetbrains-academy/refactoring-java-course.git
+    ```
 
-The most convenient way of getting your new project from GitHub is the <kbd>Get from VCS</kbd> action available on the Welcome Screen,
-where you can filter your GitHub  repository by its name.
+2. Build the project:
+    ```text
+    ./gradlew build
+    ```
 
-![Use this template][file:use-this-template.png]
+3. Install the [JetBrains Academy](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/install-jetbrains-academy-plugin.html) plugin from JetBrains Marketplace.
 
+4. Create a new [course preview](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html#preview_course).
 
-As the last step, you need to manually review the configuration variables described in the [`gradle.properties`][file:gradle.properties] file and *optionally* move sources from the *org.jetbrains.academy.java.template* package to the one that works best for you.
-Then you can get to work and implement your ideas.
+### Getting started: create a course archive
 
-## Gradle configuration
+You can create a [course archive](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html#fe7010f2) from the source code:
+1. Clone the repository:
+    ```text
+    git clone https://github.com/jetbrains-academy/refactoring-java-course.git
+    ```
 
-The recommended method for Java course development involves using the [Gradle][gradle] setup.
+2. Build the project:
+    ```text
+    ./gradlew build
+    ```
 
-A course built using the JetBrains Academy Java course template includes a Gradle configuration already set up.
-This gradle file sets up all base dependencies and plugins for the course.
-For each gradle module (each task in the course and extra modules like `common` as well)
-it includes [JUnit5][ref:junit5] tests.
-It also marks the `source` and `test` folders as source- and test- source sets in the project.
+3. Install the [JetBrains Academy](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/install-jetbrains-academy-plugin.html) plugin from JetBrains Marketplace.
 
-### Gradle properties
+4. Create a new [course archive](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html#fe7010f2).
 
-The project-specific configuration file [`gradle.properties`][file:gradle.properties] contains:
+## Run tests
 
-| Property name       | Description                                                   |
-|---------------------|---------------------------------------------------------------|
-| `courseGroup`       | Package name.                                                 |
-| `courseVersion`     | The current version of the course in [SemVer][semver] format. |
-| `gradleVersion`     | Version of Gradle used for course development.                |
-| `jvmVersion`        | Version of the JVM used for course development.               |
-
-## Course template structure
-
-A generated JetBrains Academy Java Course Template repository contains the following content structure:
-
-```
-.
-├── .github/                    GitHub Actions workflows
-├── .run/                       Predefined Run/Debug Configurations
-├── build/                      Output build directory
-├── gradle
-│   └── wrapper/                Gradle Wrapper
-├── common                      Course sources common for all sections
-│   └── src
-│       └── main
-│           ├── java/           Java production sources
-│           └── resources/      Resources - images, icons
-├── courseSection/              An example of the course section 
-│   ├── courseLesson/           An example of the course lesson
-│   │   ├── theoryTask/         An example of a theory task
-│   │   │   ├── src/            Task sources
-│   │   │   │   └── ...            
-│   │   │   ├── task.md         Task/theory description
-│   │   │   └── task-info.yaml  Task config file
-│   │   ├── quizTask/           An example of a quiz task
-│   │   │   ├── src/            Task sources
-│   │   │   │   └── ...            
-│   │   │   ├── task.md         Task/quiz description
-│   │   │   └── task-info.yaml  Task config file
-│   │   ├── programmingTask/    An example of a programming task
-│   │   │   ├── src/            Task sources
-│   │   │   │   └── ...            
-│   │   │   ├── test/           Task tests
-│   │   │   │   └── ...  
-│   │   │   ├── task.md         Task description
-│   │   │   └── task-info.yaml  Task config file
-│   │   └── lesson-info.yaml    Lesson config file
-│   ├── courseFrameworkLesson/  An example of the course framework lesson
-│   │   ├── ...                 Several examples of lessons
-│   │   └── lesson-info.yaml    Lesson config file
-│   └── section-info.yaml       Section config file
-├── .courseignore               Course ignoring rules
-├── .gitignore                  Git ignoring rules
-├── build.gradle.kts            Gradle configuration
-├── course-info.yaml            Course info configuration file
-├── gradle.properties           Gradle configuration properties
-├── gradlew                     *nix Gradle Wrapper script
-├── gradlew.bat                 Windows Gradle Wrapper script
-├── LICENSE                     License, MIT by default
-├── README.md                   README
-└── settings.gradle.kts         Gradle project settings
-```
-
-## Course info configuration file
-
-The course info configuration file is the [course-info.yaml][file:course-info.yaml] file located in the root directory.
-It provides general information about the course, like description, language, etc.
-
-```yaml
-type: marketplace
-title: JetBrains Academy Java course template
-language: English
-summary: Course description
-programming_language: Java
-content:
-  - courseSection
-environment_settings:
-  jvm_language_level: JDK_17
-```
-
-## Course ignore file
-
-The course ignore file is the [.courseignore][file:courseignore] file located in the root directory.
-It provides the list of files or directories that will be ignored in the final course preview or archive.
+To run tests locally, you just need to build the project and run the following command:
 
 ```text
-README.md
-/.run
+./gradlew test
 ```
 
-You can find more information about the course preview in the [Course preview][ref:course.preview] section. Information
-about creating a course archive and uploading it to the marketplace is in the [Course distribution][ref:course.distribution] section.
+The tests use the Java Reflection API under the hood to check the user's tasks.
 
-## Sample code
+## Want to know more?
 
-The prepared template provides an example of a course with one section, two lessons, and five tasks in total.
+If you have questions about the course or the tasks or if you find some errors,
+you can ask questions and participate in discussions in repository [issues](https://github.com/jetbrains-academy/refactoring-java-course/issues).
 
-![Course structure in the course creator mode][file:course-structure-author]
+## Contribution
 
-Each course may have an unlimited number of sections, lessons, and tasks.
-Students will see almost the same course structure as the educator (course author):
-
-![Course structure in the course student mode][file:course-structure-student]
-
-The main difference is in framework lessons, which display
-only task files, without intermediate steps.
-
-You can read more about framework lessons in the official documentation in the [Framework Lessons Creation][ref:framework.lessons.creation] section.
-
-> **Note**
->
-> Click <kbd>Course Creator</kbd> -> <kbd>Create Course Preview</kbd> in the context menu in the root of the repository to create a course preview.
-
-
-The JetBrains Academy plugin provides five different types of tasks,
-and you can combine them inside one lesson (whether regular or framework).
-You can read more about tasks in the official documentation in the [Task][ref:tasks] section.
-
-## Testing
-
-To check the programming exercises for [**edu**][ref:tasks] tasks, you need to write tests.
-It contains functionality to test student solutions by using the [Java Reflection API][ref:java.reflection.api] under the hood.
-This approach allows you to call students' functions that do not exist yet.
-It is a powerful mechanism that enables you to create excesses without predefined classes or function
-templates and check their signature and behaviour properly.
-
-You can find little examples of programming tasks in the repository in the `Tests.java` files:
-in [course lesson][file:course.lesson.tests] and [course framework lesson][file:course.framework.lesson.tests].
-
-## Predefined Run/Debug configurations
-
-Within the default project structure, there is a `.run` directory provided, which contains predefined *Run/Debug configurations* that expose corresponding Gradle tasks:
-
-![Run/Debug configurations][file:run-debug-configurations]
-
-| Configuration name       | Description                                                                    |
-|--------------------------|--------------------------------------------------------------------------------|
-| Build course             | Runs `:build` Gradle task with tests only.                                     |
-
-## Continuous integration
-
-Continuous integration depends on [GitHub Actions][gh:actions], a set of workflows that make it possible to automate your testing and release process.
-Thanks to such automation, you can delegate the testing and verification phases to the Continuous Integration (CI) and instead focus on development (and writing more tests).
-
-In the `.github/workflows` directory, you can find definitions for the following GitHub Actions workflows:
-- [Build](.github/workflows/gradle-build.yml)
-    - Builds your course
-    - Runs all tests for all tasks
-
-## Useful links
-
-- [JetBrains Academy plugin][ref:plugin.marketplace]
-- [Course creator start guide][ref:course.creator.start.guide]
-- [Courses on Marketplace][ref:marketplace]
-
-[gh:actions]: https://help.github.com/en/actions
-[gh:template]: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
-
-[ref:marketplace]: https://plugins.jetbrains.com/education
-[ref:course.creator.start.guide]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html
-[ref:plugin.marketplace]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy
-[ref:course.preview]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html#preview_course
-[ref:course.distribution]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/educator-start-guide.html#course_distribution
-[ref:framework.lessons.creation]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/framework-lessons-guide-for-course-creators.html#a81e8983
-[ref:tasks]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/framework-lessons-guide-for-course-creators.html#a81e8983
-[ref:java.reflection.api]: https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/index.html
-[ref:junit5]: https://junit.org/junit5/
-
-[docs:intro]: https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/jetbrains-academy-plugin-faq.html#what_is_the_jetbrains_academy_plugin
-
-[file:gradle.properties]: ./gradle.properties
-[file:course-info.yaml]: ./course-info.yaml
-[file:courseignore]: .courseignore
-[file:course.lesson.tests]: ./courseSection/courseLesson/programmingTask/test/Tests.java
-[file:course.framework.lesson.tests]: ./courseSection/courseFrameworkLesson/programmingTask/test/Tests.java
-
-[gradle]: https://gradle.org
-
-[semver]: https://semver.org
-
-[file:use-this-template.png]: common/src/main/resources/images/get-from-version-control.png
-[file:course-structure-author]: common/src/main/resources/images/course-structure-author.png
-[file:course-structure-student]: common/src/main/resources/images/course-structure-student.png
-[file:run-debug-configurations]: common/src/main/resources/images/run-debug-configurations.png
-[file:use-template-blur]: common/src/main/resources/images/use_template_blur.jpg
+Please be sure to review the [project's contributing guidelines](./contributing.md) to learn how to help the project.
