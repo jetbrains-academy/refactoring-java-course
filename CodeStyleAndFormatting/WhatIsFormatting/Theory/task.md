@@ -28,9 +28,9 @@ This code snippet doesn't have consistent indentation and proper spacing, making
 ```java
 public class Main {
     public static void main(String[] args) {
-        double l = 5.0;
-        double w = 3.0;
-        double area = calculateRectangleArea(l, w);
+        double rectangleLength = 5.0;
+        double rectangleWidth = 3.0;
+        double area = calculateRectangleArea(rectangleLength, rectangleWidth);
         System.out.println("Rectangle area: " + area);
     }
 
