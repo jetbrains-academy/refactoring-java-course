@@ -1,7 +1,7 @@
 # Task 1/2: Common code issues and their impact on code quality
 
-Martin Fowler introduced the **_code smell_** term, which indicates that code might have some issues or shortcomings in its
-implementation. That doesn’t necessarily mean that code has bugs, but the smell makes code understanding, developing, and
+Martin Fowler introduced the term **_code smell_** to indicate potential issues or shortcomings in code
+implementation. That doesn’t necessarily mean that the code has bugs, but the smell makes code understanding, developing, and
 maintenance much more complex.
 
 Ignoring code smells leads to an increase of technical debt. Resolving code smells via
@@ -10,7 +10,7 @@ refactoring improves the codebase’s quality and makes it clearer and more exte
 In this course, we will take a look at several code quality issues, such as long methods, long parameter list, duplicated code, large
 classes, feature envy, and middle man.
 
-Let's take a look at the code snippets above.
+Let's take a look at the code snippets below.
 
 **Before refactoring:**
 
@@ -46,9 +46,9 @@ public class Order {
 }
 ```
 
-In this code snippet, class `Order` takes **9** parameters in the constructor,
+In this code snippet, the `Order` class takes **9** parameters in the constructor,
 which makes the code less readable and harder to understand.
-A situation when a class/method takes many parameters is called **_Long Parameter List_** code smell.
+The situation when a class/method takes many parameters is called the **_Long Parameter List_** code smell.
 As the number of parameters increases, it becomes challenging to keep track of their order and purpose,
 leading to potential mistakes and maintenance difficulties.
 
@@ -92,7 +92,7 @@ public class Order {
 }
 ```
 
-The refactoring addressed _Long Parameter List_ by introducing a separate class called `Product`
+The refactoring addressed the _Long Parameter List_ issue by introducing a separate class called `Product`
 to encapsulate the parameters related to the product.
-The code became more readable as data related to the product is encapsulated in a single object `Product`,
+The code became more readable as the data related to the product is encapsulated within a single object `Product`,
 promoting better design principles.
