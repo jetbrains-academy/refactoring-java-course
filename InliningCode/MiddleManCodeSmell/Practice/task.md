@@ -1,6 +1,6 @@
 ### Task
 
-In this task, you need to resolve Middle Man code smell using Inline refactoring.
+In this task, you need to resolve the Middle Man code smell using Inline refactoring.
 
 
 ### Hints
@@ -9,7 +9,7 @@ In this task, you need to resolve Middle Man code smell using Inline refactoring
 
 Apply the Inline Method refactoring and directly use the `DataProvider` class in the `Client` class.
 
-Do not forget to remove `MiddleMan` class after that.
+Do not forget to remove the `MiddleMan` class after that.
 </div>
 
 <div class="hint" title="Shortcut for Inline refactoring">
