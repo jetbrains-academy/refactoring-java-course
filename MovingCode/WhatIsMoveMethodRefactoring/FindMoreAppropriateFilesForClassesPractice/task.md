@@ -1,6 +1,6 @@
 ### Task
 
-In this task, you need to move classes to a more appropriate place using move refactoring.
+In this task, you need to move classes to a more appropriate place using the Move refactoring technique.
 
 ### Hints
 
@@ -12,8 +12,8 @@ Use the &shortcut:Move; shortcut to move a code element.
 
 <div class="hint" title="Refactoring hint">
 
-Move `Car` class to the `Car.java` file.
+Move the `Car` class to the `Car.java` file.
 
-Move `Driver` class to the `Driver.java` file.
+Move the `Driver` class to the `Driver.java` file.
 
 </div>
