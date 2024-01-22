@@ -12,9 +12,9 @@ This course will introduce you to refactorings and the IDE features that will he
 You will learn to recognize refactoring opportunities in code and to deal with them.
 Using automatic IDE refactorings, you will transform code to improve its structure, readability, and maintainability.
 
-The course consists of 8 sections. Each section focuses on one group of refactorings and
-provides brief theory and several small tasks for practice.
-We will move on from small local refactoring changes to more complex ones, which affect the entire project architecture.
+The course consists of 8 sections. Each section focuses on one group of refactorings,
+supplementing brief theory with several practical tasks.
+We will move on from minor local refactoring changes to more complex ones that affect the entire project architecture.
 
 Embark on a coding journey with refactoring and design patterns – your path to coding excellence begins now! 🚀
 
