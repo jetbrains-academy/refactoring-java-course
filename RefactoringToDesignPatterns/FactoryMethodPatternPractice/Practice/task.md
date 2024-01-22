@@ -1,18 +1,18 @@
 ### Task
 
-- Create a class `TransportationServiceFactory` with the `getTransportation(String transport)` method.
-  This method should return an appropriate transportation based on the given transport name, using the `switch`
+- Create a class named `TransportationServiceFactory` with a method called `getTransportation(String transport)`.
+  This method should return the appropriate transportation based on the given transport name, using the `switch`
   construction.
 
-- In the main method, create an instance of `TransportationServiceFactory` class, add an invocation of
-  the `getTransportation` method, and invoke `drive` method.
+- In the main method, create an instance of the `TransportationServiceFactory` class, add an invocation of
+  the `getTransportation` method, and invoke the `drive` method.
 
 ### Hints
 
 <div class="hint" title="Where to start?">
 
 The file where you should write the code is already open.
-Please, create a new class named `TransportationServiceFactory` and implement `getTransportation` method.
+Please create a new class named `TransportationServiceFactory` and implement the `getTransportation` method.
 </div>
 
 <div class="hint" title="How should TransportationServiceFactory class look?">
