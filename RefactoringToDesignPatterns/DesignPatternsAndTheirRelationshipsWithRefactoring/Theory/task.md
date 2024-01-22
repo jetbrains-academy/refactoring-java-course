@@ -5,8 +5,8 @@ implementation of their applications.
 They offer a structured approach to solving specific issues and guide developers in creating maintainable,
 extensible, and robust software architectures.
 
-Here is a list of advantages of design patterns:
-- **Modularity**: Design patterns promote modular and organized code structure, making it easier to maintain complex systems.
+Here is a list of the benefits of design patterns:
+- **Modularity**: Design patterns promote a modular and organized code structure, making it easier to maintain complex systems.
 - **Readability**: Design patterns enhance code readability by providing a consistent structure that other developers can easily understand.
 - **Code Reusability**: Patterns can be reused across different places in the codebase, saving time and effort in solving similar design challenges.
 
@@ -18,9 +18,9 @@ Design patterns are categorized into three main types: creational, structural, a
 **See Also**: [Examples of design patterns in Java](https://refactoring.guru/design-patterns/java)
 
 _Refactoring_ can be used to implement design patterns.
-While refactoring existing code to introduce a design pattern, developers often reorganize and modify the codebase
+When refactoring existing code to introduce a design pattern, developers often reorganize and modify the codebase
 to align it with the pattern's principles.
-As the project evolves, patterns may be identified, applied, and refined through refactoring to achieve design goals.
+As a project evolves, patterns may be identified, applied, and refined through refactoring to achieve design goals.
 
 **In summary**, design patterns and refactoring work together to enhance software design, quality, and maintainability.
 While design patterns offer structured solutions to common problems, refactoring serves as a means to continuously
