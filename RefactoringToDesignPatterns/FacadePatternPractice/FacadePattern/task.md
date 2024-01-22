@@ -1,4 +1,4 @@
-Let’s try to implement a Facade pattern to encapsulate the interactions between different classes.
+Let’s try to implement the Facade pattern to encapsulate the interactions between different classes.
 
 Let’s take a look at the example in the editor.
 
