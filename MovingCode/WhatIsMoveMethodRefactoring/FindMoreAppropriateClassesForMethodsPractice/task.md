@@ -1,6 +1,6 @@
 ### Task
 
-Next, you need to move methods to a more appropriate place using move refactoring.
+Next, you need to move methods to a more appropriate place using the Move refactoring technique.
 Move some methods from one class to another.
 
 ### Hints
@@ -13,6 +13,6 @@ Use the F6 shortcut to move a code element.
 
 <div class="hint" title="Refactoring hint">
 
-Move `start()` and `stop()` methods to the `Car` class.
+Move the `start()` and `stop()` methods to the `Car` class.
 
 </div>
