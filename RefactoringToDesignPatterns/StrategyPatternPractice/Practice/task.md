@@ -5,16 +5,16 @@
 - Implement a separate class for each payment method: `CreditCardPayment`, `PayPalPayment`, and `BitcoinPayment`.
   Each of these classes should implement the base `PaymentStrategy` interface and override the `processPayment`
   method.
-- Create a `PaymentProcessor` class that encapsulates the payment behavior.
+- Create a `PaymentProcessor` class that encapsulates payment behavior.
   This class should take as a constructor parameter `PaymentStrategy paymentStrategy`
   and should contain the `processOrderPayment` method, which invokes the `processPayment` method from `paymentStrategy`.
 - Transform the `Order` class into a class that only stores the order's total amount and date data. Implement getters for these fields.
 - Within the `Main::main` method, instantiate an `Order` object for each order and a `PaymentProcessor` for each payment type.
   Make sure to pass the corresponding payment strategy when creating the `PaymentProcessor` object.
 
-By using the **Strategy** design pattern, the payment processing logic is separated from the `Order` class,
+By using the **Strategy** design pattern, payment processing logic is separated from the `Order` class,
 making it more flexible and maintainable.
-Adding new payment methods or modifying the existing ones is easier and doesn't affect the `Order` class.
+Adding new payment methods or modifying existing ones becomes easier and doesn't affect the `Order` class.
 The client code also becomes cleaner, as it focuses on creating instances of `PaymentProcessor` with the desired payment
 strategies.
 
@@ -23,7 +23,7 @@ strategies.
 <div class="hint" title="Where to start?">
 
 The file where you should write the code is already open.
-Please, create an interface named `PaymentStrategy` and add `void processPayment(Double amount)` method.
+Please create an interface named `PaymentStrategy` and add the `void processPayment(Double amount)` method.
 </div>
 
 <div class="hint" title="How should PaymentProcessor class look?">
