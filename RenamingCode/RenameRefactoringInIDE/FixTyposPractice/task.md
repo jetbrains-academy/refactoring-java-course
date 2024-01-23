@@ -13,9 +13,9 @@ and rename entities according to the rules described in the previous lesson.
 
 <div class="hint" title="Naming hint">
 
-- `getgradestatus` - method names should follow the `сamelCase` style: every word except the first starts with an uppercase letter. The correct name is `getGradeStatus`.
+- `getgradestatus` - method names should follow `сamelCase` style: every word except the first starts with an uppercase letter. The correct name is `getGradeStatus`.
 - `SetName` - method names should start with a lowercase letter. The correct name is `setName`.
 - `setaGe` - each sub-word except the first should start with an uppercase letter. The correct name is `setAge`.
-- `setAvergeScore` - there is a typo in _Averge_ sub-word. The correct name is `setAverageScore`.
+- `setAvergeScore` - there is a typo in the _Averge_ sub-word. The correct name is `setAverageScore`.
 
 </div>
