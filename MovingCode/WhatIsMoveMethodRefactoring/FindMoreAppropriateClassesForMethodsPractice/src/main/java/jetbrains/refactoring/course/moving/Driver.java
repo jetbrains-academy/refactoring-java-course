@@ -1,6 +1,4 @@
-package jetbrains.refactoring.course.moving.driver;
-
-import jetbrains.refactoring.course.moving.car.Car;
+package jetbrains.refactoring.course.moving;
 
 public class Driver {
     private Car car;
@@ -13,25 +11,15 @@ public class Driver {
         this.car = car;
     }
 
-    private void start() {
-        car.engineStarted = true;
-        car.setGear(1);
-    }
-
-    private void stop(){
-        car.setGear(0);
-        car.engineStarted = false;
-    }
-
     private void driving(String destination){
         System.out.println("The driver is coming to " + destination);
     }
 
     public void driveTo(String destination) {
         System.out.println("Start driving");
-        start();
+        car.start();
         driving(destination);
-        stop();
+        car.stop();
         System.out.println("Arrived at destination");
     }
 }
