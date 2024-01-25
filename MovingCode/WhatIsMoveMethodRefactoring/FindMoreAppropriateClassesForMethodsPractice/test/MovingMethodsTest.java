@@ -1,3 +1,4 @@
+import junit.framework.AssertionFailedError;
 import org.jetbrains.academy.test.system.core.models.Visibility;
 import org.jetbrains.academy.test.system.core.models.classes.ClassType;
 import org.jetbrains.academy.test.system.core.models.classes.TestClass;
@@ -27,15 +28,15 @@ public class MovingMethodsTest extends BaseIjTestClass {
     static void beforeAll() throws IOException {
         String taskDirectoryPath = System.getProperty("user.dir");
         Path carPath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/moving/car/Car.java");
+                "src/main/java/jetbrains/refactoring/course/moving/Car.java");
         carText = Files.readString(carPath);
         Path driverPath = Paths.get(taskDirectoryPath,
-                "src/main/java/jetbrains/refactoring/course/moving/driver/Driver.java");
+                "src/main/java/jetbrains/refactoring/course/moving/Driver.java");
         driverText = Files.readString(driverPath);
 
         driverClass = new TestClass(
                 "Driver",
-                "jetbrains.refactoring.course.moving.driver",
+                "jetbrains.refactoring.course.moving",
                 Visibility.PUBLIC,
                 ClassType.CLASS,
                 List.of(
@@ -78,7 +79,7 @@ public class MovingMethodsTest extends BaseIjTestClass {
 
         carClass = new TestClass(
                 "Car",
-                "jetbrains.refactoring.course.moving.car",
+                "jetbrains.refactoring.course.moving",
                 Visibility.PUBLIC,
                 ClassType.CLASS,
                 List.of(
@@ -169,6 +170,8 @@ public class MovingMethodsTest extends BaseIjTestClass {
     public void carClassTest() {
         Class<?> clazz = carClass.checkBaseDefinition();
         carClass.checkFieldsDefinition(clazz, true);
-        carClass.checkDeclaredMethods(clazz);
+        Assertions.assertDoesNotThrow(() -> carClass.checkDeclaredMethods(clazz),
+                "Please, change the visibility of the start and stop methods to public and the setGear method to private"
+        );
     }
 }

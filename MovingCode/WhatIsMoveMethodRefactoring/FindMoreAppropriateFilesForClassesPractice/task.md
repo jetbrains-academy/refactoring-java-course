@@ -16,4 +16,8 @@ Move the `Car` class to the `Car.java` file.
 
 Move the `Driver` class to the `Driver.java` file.
 
+Change the visibility of the `Driver` class to `public`
+
+Change the visibility of the `Car` class to `public`
+
 </div>

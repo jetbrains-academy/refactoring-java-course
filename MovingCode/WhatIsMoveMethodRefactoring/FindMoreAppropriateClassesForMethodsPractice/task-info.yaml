@@ -1,11 +1,11 @@
 type: edu
 custom_name: Find more appropriate classes for methods
 files:
-  - name: src/main/java/jetbrains/refactoring/course/moving/driver/Driver.java
+  - name: src/main/java/jetbrains/refactoring/course/moving/Driver.java
     visible: true
   - name: src/main/java/jetbrains/refactoring/course/moving/Main.java
     visible: true
-  - name: src/main/java/jetbrains/refactoring/course/moving/car/Car.java
-    visible: true
   - name: test/MovingMethodsTest.java
     visible: false
+  - name: src/main/java/jetbrains/refactoring/course/moving/Car.java
+    visible: true
