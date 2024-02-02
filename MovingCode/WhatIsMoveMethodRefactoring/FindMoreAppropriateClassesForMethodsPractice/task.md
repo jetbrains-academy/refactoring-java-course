@@ -16,12 +16,12 @@ Use the F6 shortcut to move a code element.
 
 Move the `start()` and `stop()` methods to the `Car` class.
 
-Change the visibility of the `start` method to `public`
+Change the visibility of the `start` method to `public`.
 
-Change the visibility of the `stop` method to `public`
+Change the visibility of the `stop` method to `public`.
 
-Change the visibility of the `setGear` method to `private` - it's only used inside the class
+Change the visibility of the `setGear` method to `private` - it's only used inside the class.
 
-Change the visibility of the `engineStarted` variable to `private` - it's only used inside the class
+Change the visibility of the `engineStarted` variable to `private` - it's only used inside the class.
 
 </div>
