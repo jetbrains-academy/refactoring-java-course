@@ -3,6 +3,10 @@ title: Introduction to IDE Java Code Refactoring
 language: English
 summary: Here you can put the course description. You can use HTML tags inside the
   description.
+vendor:
+  name: JetBrains
+  email: support@jetbrains.com
+  url: https://www.jetbrains.com/
 programming_language: Java
 content:
   - Introduction
@@ -15,4 +19,4 @@ content:
   - RefactoringToDesignPatterns
   - Conclusion
 environment_settings:
-  jvm_language_level: JDK_17
+  jvm_language_level: JDK_21
