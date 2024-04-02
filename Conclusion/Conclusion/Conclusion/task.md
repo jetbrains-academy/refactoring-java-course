@@ -6,7 +6,7 @@ Congratulations! 🎉
     <img src="../../../common/src/main/resources/images/Conclusion/Conclusion/conclusion_conclusion.png" alt="Conclusion" width="400"/>
 </p>
 
-You've completed the **Introduction to IDE Java Code Refactoring** course.
+You've completed the **Introduction to IDE Code Refactoring in Java** course.
 You've dived into the art of enhancing code quality, improving software design, and mastering techniques
 to make your codebase more readable, maintainable, and flexible.
 
