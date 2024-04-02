@@ -2,7 +2,7 @@
 
 Hello!
 
-Welcome to the **Introduction to IDE Java Code Refactoring** course.✨
+Welcome to the **Introduction to IDE Code Refactoring in Java** course.✨
 
 <p align="center">
     <img src="../../../common/src/main/resources/images/Introduction/Introduction/introduction_intro.png" alt="Introduction" width="400"/>
