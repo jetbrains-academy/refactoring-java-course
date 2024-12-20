@@ -1,4 +1,4 @@
-Section 1: Refactoring and its purpose
+# Section 1: Refactoring and its purpose
 
 In this section, we will cover the following topics:
 - Refactoring definition

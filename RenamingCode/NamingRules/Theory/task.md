@@ -1,4 +1,4 @@
-Task 1/2: Naming rules
+# Task 1/2: Naming rules
 
 Naming is one of the most important parts of code writing, as it significantly affects code understandability.
 A good name should be **descriptive**, **unambiguous** and clearly reflect what the code does.

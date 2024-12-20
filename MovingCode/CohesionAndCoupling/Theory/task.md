@@ -1,4 +1,4 @@
-Task: 1/2: Cohesion and coupling
+# Task: 1/2: Cohesion and coupling
 
 _**Cohesion**_ and _**coupling**_ are fundamental concepts in software design that determine how well system components 
 are organized and interact with each other. Move refactorings can play a crucial role in improving
