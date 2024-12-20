@@ -1,4 +1,5 @@
 type: edu
+custom_name: "Refactoring And Its Purpose: Practice"
 files:
   - name: test/IdentifyIssuesInCodeSnippetTest.java
     visible: false
