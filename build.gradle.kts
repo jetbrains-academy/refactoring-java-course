@@ -6,7 +6,7 @@ group = gradleProperties("courseGroup").get()
 version = gradleProperties("courseVersion").get()
 
 plugins {
-    id("org.jetbrains.intellij") version "1.14.1"
+    id("org.jetbrains.intellij") version "1.16.0"
     java
     val kotlinVersion = "1.9.0"
     id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
